@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Body } from './components/Body';
+import { Portfolio } from './components/Portfolio';
 
 class App extends Component {
   render() {
@@ -28,6 +29,9 @@ class App extends Component {
           </Navbar.Collapse>
         </Navbar>
       < Body className='body' />
+      <div className='card-portfolio' >
+        <Portfolio />
+      </div>
       </div>
     );
   }

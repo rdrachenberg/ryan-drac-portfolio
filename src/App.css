@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #7FDBFF
 }
 
 .App-logo {
@@ -29,7 +30,15 @@
   margin-right: 2px;
   padding-right: 2px;
 }
+.jumbotron {
+  background-color:#001f3f;
+}
 
+.card-portfolio{
+margin: 20px;
+position: relative;  
+
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

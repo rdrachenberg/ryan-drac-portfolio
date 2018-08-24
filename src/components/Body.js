@@ -2,7 +2,7 @@ import React from "react"
 import '../App.css';
 import { Jumbotron} from 'react-bootstrap';
 import {Animation} from 'mdbreact'
-import { Portfolio } from "./Portfolio";
+
 
 export class Body extends React.Component{
     constructor(props){
@@ -38,7 +38,7 @@ export class Body extends React.Component{
                         float: 'left',
                         maxWidth: '13%',
                         paddingRight: '5px',
-                        marginLeft: '5px'
+                        marginLeft: '0px'
                     }} 
                 />
             
@@ -58,7 +58,6 @@ export class Body extends React.Component{
             </Animation>
             </div>
         </Jumbotron>
-        <Portfolio />
         </div>
         );
     }
