@@ -1,45 +1,90 @@
 .App {
-  text-align: center;
-  background-color: #7FDBFF
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 100%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.navbar {
+  margin-bottom: 0px;
+  position: sticky;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-.navbar navbar-inverse navbar-fixed-top {
-  position: absolute;
-  margin-bottom: 100px;
-}
-.animated.bounce {
-  margin-right: 2px;
-  padding-right: 2px;
-}
-.jumbotron {
-  background-color:#001f3f;
-}
-
-.card-portfolio{
-margin: 20px;
+.portfolio {
 position: relative;  
+margin: 2px;
+margin-top: 2px;
+height: 80%;
+display: flex;
+padding: 2px;
+}
 
+.card-group{
+padding: 2px;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+justify-content: center;
+margin-top: 1%;
+margin-bottom: 1%;
 }
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+
+.ryan-img {
+  max-width: 60%;
+  position: relative; 
+  margin-top: 2%;
 }
+
+.about-me-text {
+  position: relative;
+  margin-top: 5px;
+  justify-content: right;
+  align-content: right;
+ 
+}
+
+#main-container{
+  background: url("https://www.udutu.com/wp-content/uploads/2016/08/ivory-off-white-paper-texture-1024x683.jpg");
+  margin-top: 1%;
+}
+
+.img-div{
+word-wrap: break-word;
+}
+p {
+  font-size: 18px;
+  word-wrap: break-word;
+}
+li {
+  font-size: 18px;
+  word-wrap: break-word;
+}
+
+.contact-img{
+  margin-top: 2%;
+  display: block;
+  margin-left: 0px;
+  margin-right: 20px;
+  width: 100%;
+  height: 95%;
+  
+}
+.inbox-img{
+  margin-top: 2%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  height: 60%;
+  
+}
+
+.footer-title{
+  margin-left: 15px;
+}
+
+.footer {
+width: 100%;
+position: fixed;
+bottom: 0;
+}
+
