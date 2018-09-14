@@ -21,7 +21,7 @@ module.exports = {
       .then(dbModel => {
         // res.json(dbModel)
         console.log(dbModel)
-        res.redirect("localhost:3000/public/index.html")
+        // res.redirect("http://localhost:3000/")
       })
       .catch(err => res.status(422).json(err));
   },

@@ -67,20 +67,6 @@ app.use(function (req, res, next) {
     next();
 });
 
-// seed db
-// db.User.create({
-//     name: "Tester McFly",
-//     email: "tester@gmail.com",
-//     subject: "555-555-5555",
-//     message: "This is a tester message"
-// })
-// .then(function (dbUser) {
-//     console.log(dbUser);
-// })
-// .catch(function (err) {
-//     console.log(err.message);
-// });
-
 app.post("/api/message", function (req, res, next) {
     db.Message.create(req.body)
         .then(function (dbMessage) {
@@ -144,7 +130,22 @@ app.use(
         saveUninitialized: false
     })
 );
+
 // Start the API server
 app.listen(port, function () {
     console.log(`🌎  ==> API Server now listening on port ${port}!`);
 });
+
+// seed db
+// db.User.create({
+//     name: "Tester McFly",
+//     email: "tester@gmail.com",
+//     subject: "555-555-5555",
+//     message: "This is a tester message"
+// })
+// .then(function (dbUser) {
+//     console.log(dbUser);
+// })
+// .catch(function (err) {
+//     console.log(err.message);
+// }); 
