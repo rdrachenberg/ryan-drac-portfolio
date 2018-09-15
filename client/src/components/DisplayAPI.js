@@ -2,13 +2,12 @@ import React from 'react';
 import { Container, Row, Col } from 'mdbreact';
 import '../App.css';
 import API from '../utils/API';
-import axios from 'axios';
 import {List} from '../components/List';
 import {ListItem} from '../components/ListItem';
-// import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import DeleteButton from './DeleteButton';
 
-export class FormsPage extends React.Component  {
+export class DisplayAPI extends React.Component  {
     
         state = {
             user:[],
@@ -17,10 +16,6 @@ export class FormsPage extends React.Component  {
                 subject: '',
                 message: '',
         }
-
-        // onSubmit = this.onSubmit.bind(this);
-        // onChange = this.onChange.bind(this);
-        
         
         componentDidMount(){
             this.loadUsers();
@@ -48,42 +43,53 @@ export class FormsPage extends React.Component  {
         }
 
         onChange = (e) => {
+            const {name, value} = e.target;
             this.setState({
-                [e.target.name] : e.target.value
+                [name] : value
             });
         }
 
         onSubmit = (e) => {
             e.preventDefault();
 
-            const {name, email, subject, message} = this.state;
+            if (this.state.name && this.state.email) {
+                API.saveUser({
+                    name: this.state.name,
+                    email: this.state.email,
+                    subject: this.state.subject,
+                    message: this.state.message
+                })
+                .then(res => this.loadUsers())
+                .catch(err => console.log(err));
+            }
+        };
 
-            console.log('name submitted: ' + this.state.name);
-            console.log('email submitted: ' + this.state.email);
-            console.log('subject submitted: ' + this.state.subject);
-            console.log('message submitted: ' + this.state.message);
+        //     console.log('name submitted: ' + this.state.name);
+        //     console.log('email submitted: ' + this.state.email);
+        //     console.log('subject submitted: ' + this.state.subject);
+        //     console.log('message submitted: ' + this.state.message);
 
-            const data = new FormData(this.state);
+        //     const data = new FormData(this.state);
 
-            axios.post(`http://localhost:8080/api/user`, {name, email, subject, message, 
-                method: "POST",
-                body: JSON.stringify(data),
-                headers: {
-                    "Content-Type" : "application/json"
-                }     
-            })
-            .then(res => {
-                // console.log(dbModel)
-                // res.redirect("http://localhost:3000/")
-            // console.log(res);
-            // console.log(res.data);
-            // console.log({data});
-            console.log(this.state);
-            })
-            .catch(error => {
-                    console.log(error)
-            });
-        }
+        //     axios.post(`http://localhost:8080/api/user`, {name, email, subject, message, 
+        //         method: "POST",
+        //         body: JSON.stringify(data),
+        //         headers: {
+        //             "Content-Type" : "application/json"
+        //         }     
+        //     })
+        //     .then(res => {
+        //         // console.log(dbModel)
+        //         // res.redirect("http://localhost:3000/")
+        //     // console.log(res);
+        //     // console.log(res.data);
+        //     // console.log({data});
+        //     console.log(this.state);
+        //     })
+        //     .catch(error => {
+        //             console.log(error)
+        //     });
+        // }
 
     render() {
         const {name, email, subject, message} = this.state 
@@ -92,11 +98,8 @@ export class FormsPage extends React.Component  {
                 <Container>
                     <Row>
                     <Col md="6">
-                        <img className="contact-img"src="https://github.com/rdrachenberg/Bootstrap-Portfolio/blob/master/public/assets/images/contact-me.jpg?raw=true" alt="contact-us"/>
-                    </Col>
-                    <Col md="6">
                         <form onSubmit={this.onSubmit}>
-                            <p className="h4 text-center mb-4">Contact Me</p>
+                            <p className="h4 text-center mb-4">Add a Message</p>
                             <label htmlFor="name" className="grey-text">Your name</label>
                             <input type="text" name="name" value={name} onChange={this.onChange} id="name" className="form-control" autoComplete='name' required/>
                             <br/>
@@ -109,17 +112,11 @@ export class FormsPage extends React.Component  {
                             <label htmlFor="message" className="grey-text">Your message</label>
                             <textarea type="text" name="message" value={message}  onChange={this.onChange} id="message" className="form-control" rows="3" required></textarea>
                             <div className="text-center mt-4">
-                                <button className="btn btn-outline-warning" type="submit">Send<i className="fa fa-paper-plane-o ml-2"></i></button>
+                                <button className="btn btn-danger" type="submit">Post<i className="fa fa-paper-plane-o ml-2"></i></button>
                             </div>
                         </form>
                     </Col>
-                    </Row>
-                    <Row>
-                    <Col md="12">
-                        <img className="inbox-img" src = "https://media.giphy.com/media/xT1R9ZORSvL6jtqOeQ/giphy.gif"
-                        alt = "contact-us" />
-                    </Col>
-                    </Row>
+                    
                     {this.state.user.length ? (
                     <List>
                         {this.state.user.reverse().map(user => (
@@ -144,11 +141,30 @@ export class FormsPage extends React.Component  {
                         ))}
                     </List>
                     ) : (
-                        <h1>
-                            Nothing to display ...
-                        </h1>
+                    < Col md = "6" >
+                        <List>
+                            <ListItem>
+                                <Link to="/api-render">
+                                    <div className="container-fluid">
+                                        < div className = "api-render">
+                                            {this.state.user.name}
+                                        </div>
+                                        <div className = "api-render"> 
+                                            {this.state.user.email}
+                                        </div>
+                                        <div className = "api-render"> 
+                                            {this.state.user.subject}
+                                        </div>
+                                        <div className = "api-render"> 
+                                            {this.state.user.message}
+                                        </div>
+                                    </div>
+                                </Link>
+                            </ListItem>
+                        </List>
+                    </Col>
                     )}
-                    
+                    </Row>
                 </Container>
                 
             </div>
@@ -156,4 +172,4 @@ export class FormsPage extends React.Component  {
     }
 };
 
-export default FormsPage;
+export default DisplayAPI;
