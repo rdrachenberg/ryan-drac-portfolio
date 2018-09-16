@@ -119,8 +119,8 @@ app.get("/message", function (req, res) {
 });
 
 app.get("*", (req, res, next) => {
-    // res.sendFile(path.join(__dirname, "client/build/index.html"));
-    res.sendFile(path.join(__dirname, "./public/index.html"));
+    res.sendFile(path.join(__dirname, "client/build/index.html"));
+    // res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
 
 app.use(
