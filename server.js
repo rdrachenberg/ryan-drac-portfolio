@@ -12,7 +12,7 @@ const databaseURI = ("mongodb://localhost:27017/rd-portfolio-db");
 const mongodb = require('mongodb');
 const app = express();
 const logger = require("morgan");
-// let uri = `mongodb://heroku_brj5m93v:ad0meuap52vi25hnia7qju81ds@ds139970.mlab.com:39970/heroku_brj5m93v`
+let uri= `mongodb://heroku_xll4gfbp:ad0meuap52vi25hnia7qju81ds@ds157742.mlab.com:57742/heroku_xll4gfbp`
 let db2 = mongoose.connection;
 let cors = require('cors');
 
@@ -119,8 +119,8 @@ app.get("/message", function (req, res) {
 });
 
 app.get("*", (req, res, next) => {
-    // res.sendFile(path.join(__dirname, "client/build/index.html"));
-    res.sendFile(path.join(__dirname, "./public/index.html"));
+    res.sendFile(path.join(__dirname, "client/build/index.html"));
+    // res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
 
 app.use(
