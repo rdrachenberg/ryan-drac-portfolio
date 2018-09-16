@@ -12,7 +12,7 @@ const databaseURI = ("mongodb://localhost:27017/rd-portfolio-db");
 const mongodb = require('mongodb');
 const app = express();
 const logger = require("morgan");
-let uri= `mongodb://heroku_xll4gfbp:ad0meuap52vi25hnia7qju81ds@ds157742.mlab.com:57742/heroku_xll4gfbp`
+let uri= `mongodb://heroku_xll4gfbp:ad0meuap52vi25hnia7qju81ds@ds157742.mlab.com:57742/heroku_xll4gfbp`;
 let db2 = mongoose.connection;
 let cors = require('cors');
 
