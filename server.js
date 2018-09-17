@@ -9,7 +9,6 @@ const session = require("express-session");
 const passport = require("passport");
 const db = require("./models");
 const databaseURI = ("mongodb://localhost:27017/rd-portfolio-db");
-const mongodb = require('mongodb');
 const app = express();
 const logger = require("morgan");
 let uri = process.env.MONGOLAB_URI;
@@ -17,7 +16,9 @@ let db2 = mongoose.connection;
 let cors = require('cors');
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || databaseURI);
+mongoose.connect(process.env.MONGODB_URI || databaseURI, {
+useNewUrlParser: true
+});;
 mongoose.connect("mongodb://localhost:27017/rd-portfolio-db", {
     useNewUrlParser: true
 });
