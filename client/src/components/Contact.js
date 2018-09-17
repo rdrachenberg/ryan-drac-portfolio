@@ -120,35 +120,6 @@ export class FormsPage extends React.Component  {
                         alt = "contact-us" />
                     </Col>
                     </Row>
-                    {this.state.user.length ? (
-                    <List>
-                        {this.state.user.reverse().map(user => (
-                            <ListItem key={user.id}>
-                            <span onClick={() => this.findOneUser(user._id)}>
-                                {/* <Link  to="api/user"> */}
-                                <strong>
-                                    <div>
-                                        Name: {user.name},
-                                    </div>
-                                    < div >
-                                        Email: {user.email},
-                                    </ div>
-                                    <div>
-                                        Subject: {user.subject}
-                                    </div>
-                                </strong>
-                                </span>
-                                {/* </Link> */}
-                                <DeleteButton onClick={() => this.deleteUser(user._id)} />
-                            </ListItem>
-                        ))}
-                    </List>
-                    ) : (
-                        <h1>
-                            Nothing to display ...
-                        </h1>
-                    )}
-                    
                 </Container>
                 
             </div>
