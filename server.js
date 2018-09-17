@@ -51,7 +51,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 // Use express.static to serve the public folder as a static directory
-app.use(express.static('public'));
+app.use(express.static('client/build/public'));
 
 //Set up Body Parser
 app.use(bodyParser.json());
