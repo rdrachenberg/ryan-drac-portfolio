@@ -17,7 +17,7 @@ let db2 = mongoose.connection;
 let cors = require('cors');
 
 // Connect to the Mongo DB
-mongoose.connect(uri || databaseURI);
+mongoose.connect(process.env.MONGODB_URI || databaseURI);
 mongoose.connect("mongodb://localhost:27017/rd-portfolio-db", {
     useNewUrlParser: true
 });
@@ -51,7 +51,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 // Use express.static to serve the public folder as a static directory
-app.use(express.static('client/build'));
+app.use(express.static('client/public'));
 
 //Set up Body Parser
 app.use(bodyParser.json());
