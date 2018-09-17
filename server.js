@@ -44,7 +44,7 @@ app.use(passport.session());
 app.use(logger('dev'));
 
 // set up Express 
-app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "client/build/pubilc")));
 
 // Use body-parser for handling form submissions
 app.use(bodyParser.urlencoded({
