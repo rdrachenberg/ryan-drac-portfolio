@@ -12,12 +12,12 @@ const databaseURI = ("mongodb://localhost:27017/rd-portfolio-db");
 const mongodb = require('mongodb');
 const app = express();
 const logger = require("morgan");
-let uri = "mongodb://heroku_xll4gfbp:e398liurb2p3fi0pj6s3sh4dpj@ds157742.mlab.com:57742/heroku_xll4gfbp";
+let uri = process.env.MONGOLAB_URI;
 let db2 = mongoose.connection;
 let cors = require('cors');
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || databaseURI);
+mongoose.connect(uri || databaseURI);
 mongoose.connect("mongodb://localhost:27017/rd-portfolio-db", {
     useNewUrlParser: true
 });
@@ -51,7 +51,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 // Use express.static to serve the public folder as a static directory
-app.use(express.static('client/build/public'));
+app.use(express.static('client/build'));
 
 //Set up Body Parser
 app.use(bodyParser.json());
