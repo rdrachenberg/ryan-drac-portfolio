@@ -16,6 +16,6 @@ export default {
     },
     // Save a User to the database
     saveUser: function(data) {
-        return axios.post("/api/user", data)
+        return axios.post("/api/user", data);
     }
 };
