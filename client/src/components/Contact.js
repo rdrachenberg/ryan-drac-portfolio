@@ -2,48 +2,22 @@ import React from 'react';
 import { Container, Row, Col } from 'mdbreact';
 import '../App.css';
 import API from '../utils/API';
-import axios from 'axios';
-// import {Link} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 
 export class FormsPage extends React.Component  {
-    
-        state = {
-            user:[],
+    constructor(props) {
+        super(props);
+        this.state = {
+            toHome: false,
                 name: '',
                 email: '',
                 subject: '',
                 message: '',
-        }
-
+        };
+    }
         // onSubmit = this.onSubmit.bind(this);
         // onChange = this.onChange.bind(this);
-        
-        
-        componentDidMount(){
-            this.loadUsers();
-        }
-
-        loadUsers = () => {
-            API.getUsers()
-            .then(res => 
-                this.setState({ user: res.data, name: "", email: "", subject: "", message: "" }))
-                .catch((err => console.log(err)));
-        }
-
-        deleteUser = id => {
-            API.deleteUser(id)
-            .then(res => this.loadUsers())
-            .catch(err => console.log(err));
-        }
-
-        findOneUser = id => {
-        API.getUser(id)
-        // API.getUser(this.props.match.params.id)
-        .then(res => this.setState({ user: res.data }))
-        .then(res => console.log(this.state.user))
-        .catch(err => console.log(err));
-        }
 
         onChange = (e) => {
             this.setState({
@@ -54,36 +28,27 @@ export class FormsPage extends React.Component  {
         onSubmit = (e) => {
             e.preventDefault();
 
-            const {name, email, subject, message} = this.state;
-
-            console.log('name submitted: ' + this.state.name);
-            console.log('email submitted: ' + this.state.email);
-            console.log('subject submitted: ' + this.state.subject);
-            console.log('message submitted: ' + this.state.message);
-
-            const data = new FormData(this.state);
-
-            axios.post(`http://localhost:8080/api/user`, {name, email, subject, message, 
-                method: "POST",
-                body: JSON.stringify(data),
-                headers: {
-                    "Content-Type" : "application/json"
-                }     
+            if (this.state.name && this.state.email) {
+            API.saveUser({
+            name: this.state.name,
+            email: this.state.email,
+            subject: this.state.subject,
+            message: this.state.message
             })
-            .then(res => {
-                // console.log(dbModel)
-                // res.redirect("http://localhost:3000/")
-            // console.log(res);
-            // console.log(res.data);
-            // console.log({data});
-            console.log(this.state);
-            })
-            .catch(error => {
-                    console.log(error)
-            });
-        }
+            .then(this.setState(() => ({
+                toHome: true
+            })))
+            .then(res => console.log("hello"))
+            .catch(err => console.log(err));
+            }
+            
+        };
 
     render() {
+        if (this.state.toHome === true){
+            return( <Redirect to='/' />
+            )
+        };
         const {name, email, subject, message} = this.state 
         return(
             <div>
@@ -93,21 +58,21 @@ export class FormsPage extends React.Component  {
                         <img className="contact-img"src="https://github.com/rdrachenberg/Bootstrap-Portfolio/blob/master/public/assets/images/contact-me.jpg?raw=true" alt="contact-us"/>
                     </Col>
                     <Col md="6">
-                        <form onSubmit={this.onSubmit}>
+                        <form onSubmit={this.onSubmit.bind(this)}>
                             <p className="h4 text-center mb-4">Contact Me</p>
                             <label htmlFor="name" className="grey-text">Your name</label>
-                            <input type="text" name="name" value={name} onChange={this.onChange} id="name" className="form-control" autoComplete='name' required/>
+                            <input type="text" name="name" value={name} onChange={this.onChange.bind(this)} id="name" className="form-control" autoComplete='name' required/>
                             <br/>
                             <label htmlFor="email" className="grey-text">Your email</label>
-                            <input type="email" name="email" value={email} onChange={this.onChange} id="email" className="form-control" autoComplete='email' required/>
+                            <input type="email" name="email" value={email} onChange={this.onChange.bind(this)} id="email" className="form-control" autoComplete='email' required/>
                             <br/>
                             <label htmlFor="subject" className="grey-text">Subject</label>
-                            <input type="text" name="subject" value={subject} onChange={this.onChange} id="subject" className="form-control"/>
+                            <input type="text" name="subject" value={subject} onChange={this.onChange.bind(this)} id="subject" className="form-control"/>
                             <br/>
                             <label htmlFor="message" className="grey-text">Your message</label>
-                            <textarea type="text" name="message" value={message}  onChange={this.onChange} id="message" className="form-control" rows="3" required></textarea>
+                            <textarea type="text" name="message" value={message}  onChange={this.onChange.bind(this)} id="message" className="form-control" rows="3" required></textarea>
                             <div className="text-center mt-4">
-                                <button className="btn btn-outline-warning" type="submit">Send<i className="fa fa-paper-plane-o ml-2"></i></button>
+                                <button className="btn btn-outline-primary" type="submit">Send<i className="fa fa-paper-plane-o ml-2"></i></button>
                             </div>
                         </form>
                     </Col>
@@ -119,7 +84,6 @@ export class FormsPage extends React.Component  {
                     </Col>
                     </Row>
                 </Container>
-                
             </div>
         );
     }

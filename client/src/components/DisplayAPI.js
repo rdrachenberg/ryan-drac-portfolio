@@ -112,7 +112,7 @@ export class DisplayAPI extends React.Component  {
                             <label htmlFor="message" className="grey-text">Your message</label>
                             <textarea type="text" name="message" value={message}  onChange={this.onChange} id="message" className="form-control" rows="3" required></textarea>
                             <div className="text-center mt-4">
-                                <button className="btn btn-danger" type="submit">Post<i className="fa fa-paper-plane-o ml-2"></i></button>
+                                <button className="btn btn-elegant" type="submit">Post<i className="fa fa-paper-plane-o ml-2"></i></button>
                             </div>
                         </form>
                     </Col>
