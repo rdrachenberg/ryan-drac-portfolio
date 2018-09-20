@@ -4,7 +4,6 @@ import '../App.css';
 import API from '../utils/API';
 import {Redirect} from 'react-router-dom';
 
-
 export class FormsPage extends React.Component  {
     constructor(props) {
         super(props);
