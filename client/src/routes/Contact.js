@@ -8,9 +8,7 @@ export default () => (
     <div>
         < NavbarFeatures />
         < FormsPage />
-        <div className="footer">
-            < FooterPage />
-        </div>
+        < FooterPage />
     </div>
 
 );

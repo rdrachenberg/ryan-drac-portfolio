@@ -45,7 +45,7 @@ export class FormsPage extends React.Component  {
 
     render() {
         if (this.state.toHome === true){
-            return( <Redirect to='/' />
+            return( <Redirect to='/api-render' />
             )
         };
         const {name, email, subject, message} = this.state 

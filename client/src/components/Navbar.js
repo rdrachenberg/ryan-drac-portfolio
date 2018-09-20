@@ -38,7 +38,10 @@ export class NavbarFeatures extends React.Component {
                                     <NavLink className="nav-link" to="/portfolio">Portfolio</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="contact-me">Contact Me</NavLink>
+                                    <NavLink className="nav-link" to="/contact-me">Contact Me</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="nav-link" to="/api-render">API</NavLink>
                                 </NavItem>
                         </NavbarNav>
                     </Collapse>
