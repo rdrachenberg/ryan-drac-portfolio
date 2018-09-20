@@ -63,34 +63,7 @@ export class DisplayAPI extends React.Component  {
                 .catch(err => console.log(err));
             }
         };
-
-        //     console.log('name submitted: ' + this.state.name);
-        //     console.log('email submitted: ' + this.state.email);
-        //     console.log('subject submitted: ' + this.state.subject);
-        //     console.log('message submitted: ' + this.state.message);
-
-        //     const data = new FormData(this.state);
-
-        //     axios.post(`http://localhost:8080/api/user`, {name, email, subject, message, 
-        //         method: "POST",
-        //         body: JSON.stringify(data),
-        //         headers: {
-        //             "Content-Type" : "application/json"
-        //         }     
-        //     })
-        //     .then(res => {
-        //         // console.log(dbModel)
-        //         // res.redirect("http://localhost:3000/")
-        //     // console.log(res);
-        //     // console.log(res.data);
-        //     // console.log({data});
-        //     console.log(this.state);
-        //     })
-        //     .catch(error => {
-        //             console.log(error)
-        //     });
-        // }
-
+        
     render() {
         const {name, email, subject, message} = this.state 
         return(
@@ -166,7 +139,6 @@ export class DisplayAPI extends React.Component  {
                     )}
                     </Row>
                 </Container>
-                
             </div>
         );
     }
