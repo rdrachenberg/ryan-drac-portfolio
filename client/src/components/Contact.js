@@ -3,10 +3,8 @@ import { Container, Row, Col } from 'mdbreact';
 import '../App.css';
 import API from '../utils/API';
 import axios from 'axios';
-import {List} from '../components/List';
-import {ListItem} from '../components/ListItem';
 // import {Link} from 'react-router-dom';
-import DeleteButton from './DeleteButton';
+
 
 export class FormsPage extends React.Component  {
     
