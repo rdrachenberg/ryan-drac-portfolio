@@ -53,7 +53,6 @@ margin-bottom: 1%;
   margin-top: 5px;
   justify-content: right;
   align-content: right;
- 
 }
 
 #main-container{
@@ -95,7 +94,8 @@ li {
 .list-container{
   margin-left: 40px;
   align-content: center;
-  max-height: 545px;
+  max-height: 1000px;
+  height: 600px;
   max-width: 100%;
   width: 45%;
   border: 12px black;
