@@ -133,7 +133,7 @@ app.use(
 );
 
 // Start the API server
-app.listen(port, function () {
+app.listen(process.env.PORT || port, function () {
     console.log(`🌎  ==> API Server now listening on port ${port}!`);
 });
 
