@@ -14,8 +14,8 @@ export class FooterPage extends React.Component {
                         
                         <ul className="footer-links">
                         <h5><li className="list-unstyled"><a href="https://github.com/rdrachenberg" target="_blank" rel="noopener noreferrer">GitHub</a></li></h5>
-                        <h5><li className="list-unstyled"><a href="https://www.linkedin.com/in/ryandrachenberg/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li></h5>
-                        <h5><li className="list-unstyled"><a href="https://ryan-drac-port.herokuapp.com/assets/images/stackoverflow-128.png" target="_blank" rel="noopener noreferrer">Stack Overflow</a></li></h5>
+                        <h5><li className="list-unstyled"><a href="https://www.linkedin.com/in/ryan-drachenberg/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li></h5>
+                        <h5><li className="list-unstyled"><a href="https://stackexchange.com/users/11861252/ryan-d" target="_blank" rel="noopener noreferrer">Stack Overflow</a></li></h5>
                         </ul>
                         </Col>
                         <Col sm="4">
