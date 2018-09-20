@@ -44,7 +44,7 @@ app.use(passport.session());
 app.use(logger('dev'));
 
 // set up Express 
-app.use(express.static(path.join(__dirname, "client/build/pubilc")));
+app.use(express.static(path.join(__dirname, "client/build")));
 
 // Use body-parser for handling form submissions
 app.use(bodyParser.urlencoded({
@@ -65,7 +65,7 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-    next();
+    // next();
 });
 
 app.post("/api/message", function (req, res, next) {
@@ -121,7 +121,6 @@ app.get("/message", function (req, res) {
 
 app.get("*", (req, res, next) => {
     res.sendFile(path.join(__dirname, "client/build/index.html"));
-    // res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
 
 app.use(
@@ -133,7 +132,7 @@ app.use(
 );
 
 // Start the API server
-app.listen(port, function () {
+app.listen(process.env.PORT || port, function () {
     console.log(`🌎  ==> API Server now listening on port ${port}!`);
 });
 
