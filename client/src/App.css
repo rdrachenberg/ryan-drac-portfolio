@@ -28,6 +28,20 @@ margin-top: 1%;
 margin-bottom: 1%;
 }
 
+.card-body {
+  max-height: 40%;
+  margin-bottom: 2px;
+  padding-top: 4px;
+}
+
+.card-title {
+  margin-bottom: 2px;
+}
+
+.card-text {
+  margin-bottom: 2px;
+}
+
 .ryan-img {
   max-width: 60%;
   position: relative; 
