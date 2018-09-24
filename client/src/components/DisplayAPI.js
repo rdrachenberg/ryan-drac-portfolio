@@ -71,7 +71,7 @@ export class DisplayAPI extends React.Component  {
                 <Container>
                     <Row>
                     <Col md="6">
-                        <form onSubmit={this.onSubmit}>
+                        <form onSubmit={this.onSubmit} className="form-api">
                             <p className="h4 text-center mb-4">Add a Message</p>
                             <label htmlFor="name" className="grey-text">Your name</label>
                             <input type="text" name="name" value={name} onChange={this.onChange} id="name" className="form-control" autoComplete='name' required/>
