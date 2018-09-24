@@ -20,7 +20,7 @@ export class Body extends React.Component{
                                 <img src="https://scontent.ftpa1-1.fna.fbcdn.net/v/t1.0-9/179336_10150091216446506_86180_n.jpg?_nc_cat=0&oh=f9037530bcf28d41cba0a8f50e9063df&oe=5BF69B06"
                                 className="ryan-img" id="bioPic" alt="Ryan-Drachenberg" />
                             </div>
-                            <div className="col-sm-4">
+                            <div className="col-sm-4" id="to-delete">
                             </div>
                             <div className="col-sm-4">
                                 < Animation type = "hinge" duration = "5s" delay = "1s" >

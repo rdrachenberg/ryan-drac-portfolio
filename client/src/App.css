@@ -178,3 +178,38 @@ position: fixed;
 bottom: 0;
 }
 
+@media only screen and (max-width: 768px) {
+
+}
+
+@media only screen and (max-width: 560px) {
+.col-sm-4 {
+  max-width: 50%;
+  padding: 0px;
+
+}
+.ryan-img{
+  max-width: 100%;
+  float: left;
+  margin-right: 0px;
+
+}
+#to-delete {
+  display: none;
+}
+.about-me-text{
+  position: relative;
+  max-width: 100%;
+  text-align: center;
+  margin-right: 20px;
+
+}
+p {
+  margin: 5px;  
+}
+
+h2, h3, h4, li {
+  margin: 5px;
+}
+
+}
