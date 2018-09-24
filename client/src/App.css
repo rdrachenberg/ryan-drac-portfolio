@@ -184,50 +184,69 @@ bottom: 0;
 }
 
 @media only screen and (max-width: 560px) {
-.col-sm-4 {
-  max-width: 50%;
-  padding: 0px;
+  .col-sm-4 {
+    max-width: 50%;
+    padding: 0px;
 
-}
-.ryan-img{
-  max-width: 100%;
-  float: left;
-  margin-right: 0px;
+  }
+  .col-md-12 {
+  max-height: 105px;
+  }
 
-}
-#to-delete {
-  display: none;
-}
-.about-me-text{
-  position: relative;
-  max-width: 100%;
-  text-align: center;
-  margin-right: 20px;
+  .ryan-img{
+    max-width: 100%;
+    float: left;
+    margin-right: 0px;
 
-}
-p {
-  margin: 5px;  
-}
+  }
+  #to-delete {
+    display: none;
+  }
+  .about-me-text{
+    position: relative;
+    max-width: 100%;
+    text-align: center;
+    margin-right: 20px;
 
-h2, h3, h4, li {
-  margin: 5px;
-}
-.footer-title {
+  }
+  p {
+    margin: 5px;  
+  }
 
+  h2, h3, h4, li {
+    margin: 5px;
+  }
 
-}
-#footer-title-col {
-  
+  .footer-links{
 
-}
-.footer-links{
+    float: left;
+    position: absolute;
+    
+  }
+  .copy-right {
+    margin-top: 13px;
+  }
 
-  float: left;
-  position: absolute;
-  
-}
-.copy-right {
-  margin-top: 13px;
-}
+  .card-body {
+    margin-bottom: 15px;
+  }
 
+  .inbox-img {
+    width: 350px;
+    height: 105px;
+    margin-top: 10px;
+  }
+
+  .form-api {
+  padding-top: 10px;
+  }
+
+  .list-item-group {
+    width: 100%;
+  }
+
+  .list-container{
+    width: 100%;
+    margin: 0px;
+  }
 }
