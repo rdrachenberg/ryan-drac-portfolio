@@ -10,7 +10,7 @@
 }
 
 .portfolio {
-position: relative;  
+position: absolute;  
 margin: 2px;
 margin-top: 2px;
 height: 80%;
@@ -113,6 +113,7 @@ li {
   margin-bottom: 30px;
 
 }
+
 .list-container li {
   list-style: none;
   border-radius: 10px;
@@ -210,6 +211,23 @@ p {
 
 h2, h3, h4, li {
   margin: 5px;
+}
+.footer-title {
+
+
+}
+#footer-title-col {
+  
+
+}
+.footer-links{
+
+  float: left;
+  position: absolute;
+  
+}
+.copy-right {
+  margin-top: 13px;
 }
 
 }
