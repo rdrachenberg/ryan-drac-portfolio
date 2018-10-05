@@ -91,20 +91,23 @@ li {
   
 }
 
+.list-item-group {
+width: 100%;
+}
+
 .list-container{
-  margin-left: 40px;
+  /* margin-left: 40px; */
   align-content: center;
   max-height: 1000px;
   height: 600px;
-  max-width: 100%;
-  width: 45%;
+  max-width:550px;
+  width: 100%;
   border: 12px black;
   border-radius: 5px;
   overflow-y: scroll;
   overflow-x: hidden;
   margin-bottom: 50px;
-  padding:10px;
-  
+  padding:10px;  
 }
 
 .list-container ul {
@@ -142,7 +145,7 @@ li {
   border-bottom: none;
 }
 
-.delete-button{
+.delete-button, .update-button{
   display: inline-block;
   margin: auto;
   border-radius: 20px;

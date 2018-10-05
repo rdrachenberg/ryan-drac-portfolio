@@ -6,15 +6,20 @@ import {List} from '../components/List';
 import {ListItem} from '../components/ListItem';
 import {Link} from 'react-router-dom';
 import DeleteButton from './DeleteButton';
+import UpdateButton from './UpdateButton';
+
 
 export class DisplayAPI extends React.Component  {
     
         state = {
+            toUpdate: false,
+            toHide: false,
             user:[],
                 name: '',
                 email: '',
                 subject: '',
                 message: '',
+
         }
         
         componentDidMount(){
@@ -34,10 +39,23 @@ export class DisplayAPI extends React.Component  {
             .catch(err => console.log(err));
         }
 
+        updateUser = (id) => {
+            API.updateUser(id, {
+                    name: this.state.name,
+                    email: this.state.email,
+                    subject: this.state.subject,
+                    message: this.state.message
+            })
+            .then(res => this.findOneUser())
+            .then(res => this.loadUsers())
+            .then(res => console.log('the Update button has been clicked'))
+            .catch(err => console.log(err));
+            
+        }
+
         findOneUser = id => {
         API.getUser(id)
-        // API.getUser(this.props.match.params.id)
-        .then(res => this.setState({ user: res.data }))
+        .then(res => this.setState({ user: res.data, toUpdate: true}))
         .then(res => console.log(this.state.user))
         .catch(err => console.log(err));
         }
@@ -51,7 +69,6 @@ export class DisplayAPI extends React.Component  {
 
         onSubmit = (e) => {
             e.preventDefault();
-
             if (this.state.name && this.state.email) {
                 API.saveUser({
                     name: this.state.name,
@@ -65,37 +82,41 @@ export class DisplayAPI extends React.Component  {
         };
         
     render() {
-        const {name, email, subject, message} = this.state 
+        if (this.state.toHide === true){
+            return( <div></div>
+            )
+        };
+        const {user, name, email, subject, message} = this.state 
         return(
             <div>
                 <Container>
                     <Row>
-                    <Col md="6">
-                        <form onSubmit={this.onSubmit} className="form-api">
-                            <p className="h4 text-center mb-4">Add a Message</p>
-                            <label htmlFor="name" className="grey-text">Your name</label>
-                            <input type="text" name="name" value={name} onChange={this.onChange} id="name" className="form-control" autoComplete='name' required/>
-                            <br/>
-                            <label htmlFor="email" className="grey-text">Your email</label>
-                            <input type="email" name="email" value={email} onChange={this.onChange} id="email" className="form-control" autoComplete='email' required/>
-                            <br/>
-                            <label htmlFor="subject" className="grey-text">Subject</label>
-                            <input type="text" name="subject" value={subject} onChange={this.onChange} id="subject" className="form-control"/>
-                            <br/>
-                            <label htmlFor="message" className="grey-text">Your message</label>
-                            <textarea type="text" name="message" value={message}  onChange={this.onChange} id="message" className="form-control" rows="3" required></textarea>
-                            <div className="text-center mt-4">
-                                <button className="btn btn-elegant" type="submit">Post<i className="fa fa-paper-plane-o ml-2"></i></button>
+                        <Col md="6">
+                            <div className="hidden">
+                            <form onSubmit={this.onSubmit} className="form-api">
+                                <p className="h4 text-center mb-4">Add a Message</p>
+                                <label htmlFor="name" className="grey-text">Your name</label>
+                                <input type="text" name="name" value={name} onChange={this.onChange} id="name" className="form-control" autoComplete='name' required/>
+                                <br/>
+                                <label htmlFor="email" className="grey-text">Your email</label>
+                                <input type="email" name="email" value={email} onChange={this.onChange} id="email" className="form-control" autoComplete='email' required/>
+                                <br/>
+                                <label htmlFor="subject" className="grey-text">Subject</label>
+                                <input type="text" name="subject" value={subject} onChange={this.onChange} id="subject" className="form-control"/>
+                                <br/>
+                                <label htmlFor="message" className="grey-text">Your message</label>
+                                <textarea type="text" name="message" value={message}  onChange={this.onChange} id="message" className="form-control" rows="3" required></textarea>
+                                <div className="text-center mt-4">
+                                    <button className="btn btn-elegant" type="submit">Post<i className="fa fa-paper-plane-o ml-2"></i></button>
+                                </div>
+                            </form>
                             </div>
-                        </form>
-                    </Col>
-                    
+                        </Col>
                     {this.state.user.length ? (
                     <List>
                         {this.state.user.reverse().map(user => (
                             <ListItem key={user.id}>
                             <span onClick={() => this.findOneUser(user._id)}>
-                                {/* <Link  to="api/user"> */}
                                 <strong>
                                     <div>
                                         Name: {user.name},
@@ -113,26 +134,47 @@ export class DisplayAPI extends React.Component  {
                             </ListItem>
                         ))}
                     </List>
+                    
                     ) : (
                     < Col md = "6" >
                         <List>
-                            <ListItem>
+                            <ListItem key={user._id}>
                                 <Link to="/api-render">
                                     <div className="container-fluid">
                                         < div className = "api-render">
-                                            {this.state.user.name}
+                                            Name: {this.state.user.name}
                                         </div>
                                         <div className = "api-render"> 
-                                            {this.state.user.email}
+                                            Email: {this.state.user.email}
                                         </div>
                                         <div className = "api-render"> 
-                                            {this.state.user.subject}
+                                            Subject: {this.state.user.subject}
                                         </div>
                                         <div className = "api-render"> 
-                                            {this.state.user.message}
+                                            Message: {this.state.user.message}
                                         </div>
+                                        <Col md="12">
+                                            <form onSubmit={this.onSubmit} className="form-api">
+                                            <p className="h4 text-center mb-4">Edit Record</p>
+                                            <label htmlFor="name" className="grey-text">Edit name</label>
+                                            <input type="text" placeholder= {this.state.user.name} name="name" value={this.state.name} onChange={this.onChange} id="name" className="form-control" autoComplete='name' required/>
+                                            <br/>
+                                            <label htmlFor="email" className="grey-text">Edit email</label>
+                                            <input type="email" name="email" value={this.state.email} onChange={this.onChange} id="email" className="form-control" autoComplete='email' required/>
+                                            <br/>
+                                            <label htmlFor="subject" className="grey-text">Edit Subject</label>
+                                            <input type="text" name="subject" value={this.state.subject} onChange={this.onChange} id="subject" className="form-control"/>
+                                            <br/>
+                                            <label htmlFor="message" className="grey-text">Edit message</label>
+                                            <textarea type="text" name="message" value={this.state.message}  onChange={this.onChange} id="message" className="form-control" rows="3" required></textarea>
+                                            <div className="text-center mt-4">
+                                                {/* <button className="btn btn-elegant" type="submit">Post<i className="fa fa-paper-plane-o ml-2"></i></button> */}
+                                            </div>
+                                            </form>
+                                        </Col>
                                     </div>
                                 </Link>
+                                <UpdateButton key={user._id} onClick={() => this.updateUser(user._id)} />
                             </ListItem>
                         </List>
                     </Col>

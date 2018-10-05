@@ -126,7 +126,7 @@ app.get("*", (req, res, next) => {
 app.use(
     session({
         secret: "crazy",
-        resave: false,
+        resave: true,
         saveUninitialized: false
     })
 );

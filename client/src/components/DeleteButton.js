@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 
 const DeleteButton = props => (
-    <span className="delete-button" {...props}>
+    <span className="update-button" {...props}>
         Delete 
     </span>
 )
