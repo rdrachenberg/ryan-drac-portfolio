@@ -4,6 +4,7 @@ import Home from './Home';
 import Portfolio from './Portfolio';
 import FormsPage from './Contact';
 import APIRender from './APIRender';
+import UpdateAPI from './UpdateAPI';
 
 
 export default () => (
@@ -23,6 +24,11 @@ export default () => (
             <Route exact path="/api-render" render={
                 () => {
                     return(<div><APIRender /></div>);
+                }
+            }/>
+            <Route exact path="/api-update" render={
+                () => {
+                    return(<div><UpdateAPI /></div>);
                 }
             }/>
         </Switch>
