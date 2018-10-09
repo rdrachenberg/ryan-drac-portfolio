@@ -55,7 +55,7 @@ export class DisplayAPI extends React.Component  {
 
         findOneUser = id => {
         API.getUser(id)
-        .then(res => this.setState({ user: res.data, toUpdate: true}))
+        .then(res => this.setState({ user: res.data, toHide: true}))
         .then(res => console.log(this.state.user))
         .catch(err => console.log(err));
         }
@@ -82,11 +82,42 @@ export class DisplayAPI extends React.Component  {
         };
         
     render() {
+        const {user, name, email, subject, message} = this.state 
         if (this.state.toHide === true){
-            return( <div></div>
+            return( 
+                <div>
+                    <Row>
+                        < Col md = "11" >
+                            < List className = "list-container-one-return" >
+                                <ListItem key={user._id}>
+                                    <Link to="/api-render">
+                                            <Col md="10">
+                                                <form onSubmit={this.onSubmit} className="form-api">
+                                                <p className="h4 text-center mb-4">Edit Record</p>
+                                                <label htmlFor="name" className="grey-text">Edit name</label>
+                                                <input type="text" placeholder= {this.state.user.name} name="name" value={this.state.name} onChange={this.onChange} id="name" className="form-control" autoComplete='name' required/>
+                                                <br/>
+                                                <label htmlFor="email" className="grey-text">Edit email</label>
+                                                <input type="email" placeholder= {this.state.user.email} name="email" value={this.state.email} onChange={this.onChange} id="email" className="form-control" autoComplete='email' required/>
+                                                <br/>
+                                                <label htmlFor="subject" className="grey-text">Edit Subject</label>
+                                                <input type="text" placeholder= {this.state.user.subject} name="subject" value={this.state.subject} onChange={this.onChange} id="subject" className="form-control"/>
+                                                <br/>
+                                                <label htmlFor="message" className="grey-text">Edit message</label>
+                                                <textarea type="text" placeholder= {this.state.user.message} name="message" value={this.state.message}  onChange={this.onChange} id="message" className="form-control" rows="3" required></textarea>
+                                                <div className="text-center mt-4">
+                                                </div>
+                                                </form>
+                                            </Col>
+                                    </Link>
+                                    <UpdateButton key={user._id} onClick={() => this.updateUser(user._id)} />
+                                </ListItem>
+                            </List>
+                        </Col>
+                    </Row>
+                </div>
             )
         };
-        const {user, name, email, subject, message} = this.state 
         return(
             <div>
                 <Container>
@@ -94,7 +125,8 @@ export class DisplayAPI extends React.Component  {
                         <Col md="6">
                             <div className="hidden">
                             <form onSubmit={this.onSubmit} className="form-api">
-                                <p className="h4 text-center mb-4">Add a Message</p>
+                            < p className = "h2 text-center mb-2" > CRUD Operations </p>
+                                <p className="h3 text-center mb-3">Add a Record</p>
                                 <label htmlFor="name" className="grey-text">Your name</label>
                                 <input type="text" name="name" value={name} onChange={this.onChange} id="name" className="form-control" autoComplete='name' required/>
                                 <br/>
@@ -107,13 +139,15 @@ export class DisplayAPI extends React.Component  {
                                 <label htmlFor="message" className="grey-text">Your message</label>
                                 <textarea type="text" name="message" value={message}  onChange={this.onChange} id="message" className="form-control" rows="3" required></textarea>
                                 <div className="text-center mt-4">
-                                    <button className="btn btn-elegant" type="submit">Post<i className="fa fa-paper-plane-o ml-2"></i></button>
+                                    <button className="btn btn-elegant" type="submit">Create Record<i className="fa fa-paper-plane-o ml-2"></i></button>
                                 </div>
                             </form>
                             </div>
                         </Col>
+                        
                     {this.state.user.length ? (
                     <List>
+                        < p className = "h2 text-center mb-2" > Click on record to update </p>
                         {this.state.user.reverse().map(user => (
                             <ListItem key={user.id}>
                             <span onClick={() => this.findOneUser(user._id)}>
@@ -134,13 +168,12 @@ export class DisplayAPI extends React.Component  {
                             </ListItem>
                         ))}
                     </List>
-                    
                     ) : (
-                    < Col md = "6" >
+                    < Col md = "12" >
                         <List>
                             <ListItem key={user._id}>
                                 <Link to="/api-render">
-                                    <div className="container-fluid">
+                                    < div className = "list-container-one-return" >
                                         < div className = "api-render">
                                             Name: {this.state.user.name}
                                         </div>
