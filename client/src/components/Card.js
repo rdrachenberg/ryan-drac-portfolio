@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, CardBody, CardImage, CardTitle, CardText, CardGroup } from 'mdbreact';
+import { Animation, Button, Card, CardBody, CardImage, CardTitle, CardText, CardGroup } from 'mdbreact';
 import "../App.css"
 
 const still = ["https://github.com/rdrachenberg/Bootstrap-Portfolio/blob/master/public/assets/images/friends.jpg?raw=true", 
@@ -35,59 +35,62 @@ export class CardPortfolio extends React.Component {
     render() {    
         return (
             <div >
-                <CardGroup>
-                    <Card className='col-' onMouseEnter={this.changeGif} onMouseLeave={this.changeGifBack} style={{height: '350px'}}>
-                        <CardImage src={this.state.src[0]} height='250px'alt="Card image cap" top hover overlay="white-slight"/>
-                        
-                        <CardBody>
-                            <CardTitle tag="h3">Friend Finder App</CardTitle>
-                            <CardText>Created a simple friend finder app. Tech Stack: HTML5, CSS3, Node.js, Bootstrap, Express.js</CardText>
-                            <Button name="html_setup" color="primary" href="https://friend-finder---.herokuapp.com/">Deployed App</Button>
-                        </CardBody>
-                    </Card>
-                    <Card className='col-' onMouseEnter={this.changeGif} onMouseLeave={this.changeGifBack} style={{height: '350px'}}>
-                        <CardImage src={this.state.src[1]} height='250px' alt="Card image cap" top hover overlay="white-slight"/>
-                        <CardBody>
-                            <CardTitle tag="h3">Eat Da Burger</CardTitle>
-                            <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                        <Button color="primary" href="https://eatdaburgerdeployed.herokuapp.com/">Deployed App</Button>
-                        </CardBody>
-                    </Card>
-                    <Card className='col-' onMouseEnter={this.changeGif} onMouseLeave={this.changeGifBack} style={{height: '350px'}}>
-                        <CardImage src={this.state.src[2]} height='250px' alt="Card image cap" top hover overlay="white-slight"/>
-                        <CardBody>
-                            <CardTitle tag="h3">Got Coin App</CardTitle>
-                            <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                        <Button color="primary">Deployed App</Button>
-                        </CardBody>
-                    </Card>
-                </CardGroup>
-                <CardGroup>
-                    <Card className='col-' onMouseEnter={this.changeGif} onMouseLeave={this.changeGifBack} style={{height: '350px'}}>
-                        <CardImage src={this.state.src[3]} height='250px'alt="Card image cap" top hover overlay="white-slight"/>
-                        <CardBody>
-                            <CardTitle tag="h3">Train Schedules</CardTitle>
-                            <CardText>Created a simple friend finder app. Tech Stack: HTML5, CSS3, Node.js, Bootstrap, Express.js</CardText>
-                            <Button color="primary" href="https://rdrachenberg.github.io/train_schedules/">Deployed App</Button>
-                        </CardBody>
-                    </Card>
-                    <Card className='col-' onMouseEnter={this.changeGif} onMouseLeave={this.changeGifBack} style={{height: '350px'}}>
-                        <CardImage src={this.state.src[4]} height='250px' alt="Card image cap" top hover overlay="white-slight"/>
-                        <CardBody>
-                            <CardTitle tag="h3">GifTastic</CardTitle>
-                            <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                            <Button color="primary" href="https://rdrachenberg.github.io/gifTastic/">Deployed App</Button>
-                        </CardBody>
-                    </Card>
-                    <Card className='col-' onMouseEnter={this.changeGif} onMouseLeave={this.changeGifBack} style={{height: '350px'}}>
-                        <CardImage src={this.state.src[5]} height='250px' alt="Card image cap" top hover overlay="white-slight"/>
-                        <CardBody>
-                            <CardTitle tag="h3">Batman App</CardTitle>
-                            <CardText>Pulls 10 Batman TV shows from TVmaze.com API.Tech Stack: Node, React, Next.js, Express</CardText>
-                        <Button color="primary" href="https://batman-app-pwrvhxafkf.now.sh/">Deployed App</Button>
-                        </CardBody>
-                    </Card>
-                </CardGroup>
+                < Animation type = "fadeInDown" duration = "2.5s">
+                    <CardGroup>
+                        <Card className='col-' onMouseEnter={this.changeGif} onMouseLeave={this.changeGifBack} style={{height: '350px'}}>
+                            <CardImage src={this.state.src[0]} height='250px'alt="Card image cap" top hover overlay="white-slight"/>
+                            <CardBody>
+                                <CardTitle tag="h3">Friend Finder App</CardTitle>
+                                <CardText>Created a simple friend finder app. Tech Stack: HTML5, CSS3, Node.js, Bootstrap, Express.js</CardText>
+                                <Button name="html_setup" color="primary" href="https://friend-finder---.herokuapp.com/">Deployed App</Button>
+                            </CardBody>
+                        </Card>
+                        <Card className='col-' onMouseEnter={this.changeGif} onMouseLeave={this.changeGifBack} style={{height: '350px'}}>
+                            <CardImage src={this.state.src[1]} height='250px' alt="Card image cap" top hover overlay="white-slight"/>
+                            <CardBody>
+                                <CardTitle tag="h3">Eat Da Burger</CardTitle>
+                                <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                            <Button color="primary" href="https://eatdaburgerdeployed.herokuapp.com/">Deployed App</Button>
+                            </CardBody>
+                        </Card>
+                        <Card className='col-' onMouseEnter={this.changeGif} onMouseLeave={this.changeGifBack} style={{height: '350px'}}>
+                            <CardImage src={this.state.src[2]} height='250px' alt="Card image cap" top hover overlay="white-slight"/>
+                            <CardBody>
+                                <CardTitle tag="h3">Got Coin App</CardTitle>
+                                <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                            <Button color="primary">Deployed App</Button>
+                            </CardBody>
+                        </Card>
+                    </CardGroup>
+                </ Animation>
+                < Animation type = "fadeInUp" duration = "2.5s">
+                    <CardGroup>
+                        <Card className='col-' onMouseEnter={this.changeGif} onMouseLeave={this.changeGifBack} style={{height: '350px'}}>
+                            <CardImage src={this.state.src[3]} height='250px'alt="Card image cap" top hover overlay="white-slight"/>
+                            <CardBody>
+                                <CardTitle tag="h3">Train Schedules</CardTitle>
+                                <CardText>Created a simple friend finder app. Tech Stack: HTML5, CSS3, Node.js, Bootstrap, Express.js</CardText>
+                                <Button color="primary" href="https://rdrachenberg.github.io/train_schedules/">Deployed App</Button>
+                            </CardBody>
+                        </Card>
+                        <Card className='col-' onMouseEnter={this.changeGif} onMouseLeave={this.changeGifBack} style={{height: '350px'}}>
+                            <CardImage src={this.state.src[4]} height='250px' alt="Card image cap" top hover overlay="white-slight"/>
+                            <CardBody>
+                                <CardTitle tag="h3">GifTastic</CardTitle>
+                                <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                                <Button color="primary" href="https://rdrachenberg.github.io/gifTastic/">Deployed App</Button>
+                            </CardBody>
+                        </Card>
+                        <Card className='col-' onMouseEnter={this.changeGif} onMouseLeave={this.changeGifBack} style={{height: '350px'}}>
+                            <CardImage src={this.state.src[5]} height='250px' alt="Card image cap" top hover overlay="white-slight"/>
+                            <CardBody>
+                                <CardTitle tag="h3">Batman App</CardTitle>
+                                <CardText>Pulls 10 Batman TV shows from TVmaze.com API.Tech Stack: Node, React, Next.js, Express</CardText>
+                            <Button color="primary" href="https://batman-app-pwrvhxafkf.now.sh/">Deployed App</Button>
+                            </CardBody>
+                        </Card>
+                    </CardGroup>
+                </ Animation>
             </div>
         )
     }
