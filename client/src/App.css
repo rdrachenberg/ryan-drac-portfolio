@@ -48,6 +48,15 @@ margin-bottom: 1%;
   margin-top: 2%;
 }
 
+.node, .react, .next, .express, .mongo-db {
+  max-width: 20%;
+  margin: 10px;
+}
+.html-5, .jquery, .javascript, .api, .mysql, .firebase {
+  max-width: 18%;
+  margin: 10px;
+}
+
 .about-me-text {
   position: relative;
   margin-top: 5px;
@@ -225,6 +234,15 @@ bottom: 0;
     margin-right: 0px;
 
   }
+
+  .node, .react, .next, .express {
+  margin: 5px;
+}
+.html-5, .jquery, .javascript, .api, .mysql, .firebase {
+  max-width: 13%;
+  margin: 10px;
+}
+
   #to-delete {
     display: none;
   }

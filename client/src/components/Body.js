@@ -44,12 +44,41 @@ export class Body extends React.Component{
                         <h2>Applications Built</h2>
                     </strong>
                     <h3>
+                        <a href="/" target="_Blank" rel="noopener noreferrer" id="home-link">This site</a>
+                    </h3>
+                    <h5>
+                        <ul>
+                        <li>I created a React app to display my portfolio. It has a fully functional front and back end deployed to Heroku. </li>
+                        <li>Tech Stack- Node, React, Express, MongoDB.</li>
+                        <div className="row">
+                            <div className = "col-sm-12">
+                            < Animation type = "fadeInLeft" duration = "1s">
+                                <img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png" className="node" id="node" alt="node" />
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" className="react" id="react" alt="react" />
+                                <img src="https://cdn-images-1.medium.com/max/1600/1*alZcSIb0lcN7gQIx2tJ_tg.png" className="express" id="express" alt="express" />  
+                                <img src="https://sophosnews.files.wordpress.com/2017/01/mongodb.png?w=1024&h=536&crop=1" className="mongo-db" id="mongo-db" alt="mongo-db" />  
+                            </ Animation>
+                            </div>
+                        </div>
+                        </ul>
+                    </h5> 
+                    <h3>
                         <a href="https://batman-app-pwrvhxafkf.now.sh" target="_Blank" rel="noopener noreferrer" id="got-coin-link">Batman App</a>
                     </h3>
                     <h5>
                         <ul>
                         <li>This is a simple React Batman app that allows users to pull the 10 most recent Batman TV shows from TVmaze.com API.</li>
                         <li>Tech Stack- Node, React, Next.js, Express, Now.</li>
+                        <div className="row">
+                            <div className = "col-sm-12">
+                            < Animation reveal type = "fadeInLeft">
+                                <img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png" className="node" id="node" alt="node" />
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" className="react" id="react" alt="react" />
+                                <img src="https://cdn-images-1.medium.com/max/1200/1*VTLrd3kMK8NSo5XSNMWkBQ.png" className="next" id="next" alt="next" />
+                                <img src="https://cdn-images-1.medium.com/max/1600/1*alZcSIb0lcN7gQIx2tJ_tg.png" className="express" id="express" alt="express" />  
+                            </ Animation>
+                            </div>
+                        </div>
                         </ul>
                     </h5> 
                     <h3>
@@ -62,6 +91,17 @@ export class Body extends React.Component{
                         <li>Create new user accounts on CoinBase to buy cryptocurrencies.</li>
                         <li>Lead developer of four.</li>
                         <li> Tech Stack - HTML5, CSS3, jQuery, JavaScript, Bootstrap, API, MySQL </li>
+                        <div className="row">
+                            <div className = "col-sm-12">
+                                < Animation reveal type = "fadeInRight" >
+                                    <img src="https://designhooks.com/wp-content/uploads/2016/04/html5-and-css3.png" className="html-5" id="html-5" alt="html-5" />
+                                    <img src="https://3wga6448744j404mpt11pbx4-wpengine.netdna-ssl.com/wp-content/uploads/2012/10/jquery.jpg" className="jquery" id="jquery" alt="jquery" />
+                                    <img src="https://uploads.getpop.org/wp-content/uploads/2017/12/js-480x480.png" className="javascript" id="javascript" alt="javascript" />
+                                    <img src="https://cdn-images-1.medium.com/max/1200/1*lAR9Uh_gJ7dp23e0vhy5Hg.png" className="api" id="api" alt="api" />  
+                                    <img src="https://qph.fs.quoracdn.net/main-qimg-648763cc041459725b62108f4fdf5b91" className="mysql" id="mysql" alt="mysql" />  
+                                </ Animation>
+                            </div>
+                        </div>
                         </ul>
                     </h5>
                     <h3>
@@ -72,6 +112,17 @@ export class Body extends React.Component{
                         <li>An application that allows users to query giphy.com's API and return 12 search relevant gifs.</li>
                         < li > Full Stack Developer. </li>
                         <li>Tech Stack - HTML5, CSS3, jQuery, JavaScript, Bootstrap, API, Firebase. </li>
+                        <div className="row">
+                            <div className = "col-sm-12">
+                                < Animation reveal type = "fadeInLeft" >
+                                    <img src="https://designhooks.com/wp-content/uploads/2016/04/html5-and-css3.png" className="html-5" id="html-5" alt="html-5" />
+                                    <img src="https://3wga6448744j404mpt11pbx4-wpengine.netdna-ssl.com/wp-content/uploads/2012/10/jquery.jpg" className="jquery" id="jquery" alt="jquery" />
+                                    <img src="https://uploads.getpop.org/wp-content/uploads/2017/12/js-480x480.png" className="javascript" id="javascript" alt="javascript" />
+                                    <img src="https://cdn-images-1.medium.com/max/1200/1*lAR9Uh_gJ7dp23e0vhy5Hg.png" className="api" id="api" alt="api" />  
+                                    <img src="https://cdn-images-1.medium.com/max/1600/1*0BZJ4ayeNrs0uACvzXgk0w.png" className="firebase" id="firebase" alt="firebase" />  
+                                </Animation>
+                            </div >
+                        </div>
                         </ul>
                     </h5>
                     <h3>Experience</h3>
