@@ -101,7 +101,7 @@ export class Body extends React.Component{
                         </ Animation>
                         <div className="row">
                             <div className = "col-sm-12">
-                                < Animation reveal type = "fadeInRight" >
+                                < Animation reveal type = "fadeInRight" duration="2s">
                                     <img src="https://designhooks.com/wp-content/uploads/2016/04/html5-and-css3.png" className="html-5" id="html-5" alt="html-5" />
                                     <img src="https://3wga6448744j404mpt11pbx4-wpengine.netdna-ssl.com/wp-content/uploads/2012/10/jquery.jpg" className="jquery" id="jquery" alt="jquery" />
                                     <img src="https://uploads.getpop.org/wp-content/uploads/2017/12/js-480x480.png" className="javascript" id="javascript" alt="javascript" />
