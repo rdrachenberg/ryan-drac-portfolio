@@ -31,25 +31,33 @@ export class Body extends React.Component{
                                 </Animation>
                             </div>
                         </div>
-                    {/* <!-- first paragraph --> */}
-                    < p > Ever since I can remember I’ ve been fascinated by technology.This fascination has led me to pursue a career in IT and given me the drive to become a full stack web developer.I believe the future is in web development and it is thrilling to see applications come to life.Let’ s build something awesome together!</p>
-                    {/* <!-- second paragraph --> */}
-                    <p>Finance and Technology have been prevalent throughout my life. I've had the fortune to run multiple companies and freelanced
-                    IT services before really diving into computer programming. Being experienced in both fields has been extremely valuable
-                    in my work. I take extreme ownership and pride in my work and take challenges with stride.</p>
-                    {/* <!-- third paragraph --> */}
-                    <p>I currently work as a freelance full stack developer. I am always looking for new freelance opportunities. Feel free to contact
-                    me via e-mail at ryanDrachenberg@gmail.com I look forward to any future relationships and opportunities.</p>
-                    <strong>
-                        <h2>Applications Built</h2>
-                    </strong>
+                    < Animation type = "fadeIn" duration = "3s">
+                        {/* <!-- first paragraph --> */}
+                        < p > Ever since I can remember I’ ve been fascinated by technology.This fascination has led me to pursue a career in IT and given me the drive to become a full stack web developer.I believe the future is in web development and it is thrilling to see applications come to life.Let’ s build something awesome together!</p>
+                        {/* <!-- second paragraph --> */}
+                        <p>Finance and Technology have been prevalent throughout my life. I've had the fortune to run multiple companies and freelanced
+                        IT services before really diving into computer programming. Being experienced in both fields has been extremely valuable
+                        in my work. I take extreme ownership and pride in my work and take challenges with stride.</p>
+                        {/* <!-- third paragraph --> */}
+                        <p>I currently work as a freelance full stack developer. I am always looking for new freelance opportunities. Feel free to contact
+                        me via e-mail at ryanDrachenberg@gmail.com I look forward to any future relationships and opportunities.</p>
+                    </ Animation>
+                    < Animation type = "fadeIn" duration = "3s">
+                        <strong>
+                            <h2>Applications Built</h2>
+                        </strong>
+                    </ Animation>
+                    < Animation type = "fadeIn" duration = "3s">
                     <h3>
-                        <a href="/" target="_Blank" rel="noopener noreferrer" id="home-link">This site</a>
+                        <a href="/portfolio" target="_Blank" rel="noopener noreferrer" id="home-link">Portfolio</a>
                     </h3>
+                    </ Animation>
                     <h5>
                         <ul>
-                        <li>I created a React app to display my portfolio. It has a fully functional front and back end deployed to Heroku. </li>
-                        <li>Tech Stack- Node, React, Express, MongoDB.</li>
+                        < Animation type = "fadeIn" duration = "3s" >
+                            <li>I created this React app to display my portfolio. The front end is React; with a Node, Express, and MongoDB backend deployed to Heroku. </li>
+                            <li>Tech Stack- Node, React, Express, MongoDB.</li>
+                        </ Animation>
                         <div className="row">
                             <div className = "col-sm-12">
                             < Animation type = "fadeIn" duration = "4s">
@@ -57,6 +65,9 @@ export class Body extends React.Component{
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" className="react" id="react" alt="react" />
                                 <img src="https://cdn-images-1.medium.com/max/1600/1*alZcSIb0lcN7gQIx2tJ_tg.png" className="express" id="express" alt="express" />  
                                 <img src="https://sophosnews.files.wordpress.com/2017/01/mongodb.png?w=1024&h=536&crop=1" className="mongo-db" id="mongo-db" alt="mongo-db" />  
+                                <a href="/portfolio">
+                                    < img src = "https://github.com/rdrachenberg/Bootstrap-Portfolio/blob/master/public/assets/images/Portfolio-SS.png?raw=true" className = "portfolio-ss" link="/portfolio" id = "portfolio-ss" alt = "portfolio-ss" /> 
+                                </a>
                             </ Animation>
                             </div>
                         </div>
@@ -101,7 +112,7 @@ export class Body extends React.Component{
                         </ Animation>
                         <div className="row">
                             <div className = "col-sm-12">
-                                < Animation reveal type = "fadeInRight" duration="2s">
+                                < Animation reveal type = "fadeInUp" duration="2s">
                                     <img src="https://designhooks.com/wp-content/uploads/2016/04/html5-and-css3.png" className="html-5" id="html-5" alt="html-5" />
                                     <img src="https://3wga6448744j404mpt11pbx4-wpengine.netdna-ssl.com/wp-content/uploads/2012/10/jquery.jpg" className="jquery" id="jquery" alt="jquery" />
                                     <img src="https://uploads.getpop.org/wp-content/uploads/2017/12/js-480x480.png" className="javascript" id="javascript" alt="javascript" />
@@ -126,7 +137,7 @@ export class Body extends React.Component{
                         </ Animation>
                         <div className="row">
                             <div className = "col-sm-12">
-                                < Animation reveal type = "fadeInLeft" >
+                                < Animation reveal type = "fadeInDown" >
                                     <img src="https://designhooks.com/wp-content/uploads/2016/04/html5-and-css3.png" className="html-5" id="html-5" alt="html-5" />
                                     <img src="https://3wga6448744j404mpt11pbx4-wpengine.netdna-ssl.com/wp-content/uploads/2012/10/jquery.jpg" className="jquery" id="jquery" alt="jquery" />
                                     <img src="https://uploads.getpop.org/wp-content/uploads/2017/12/js-480x480.png" className="javascript" id="javascript" alt="javascript" />

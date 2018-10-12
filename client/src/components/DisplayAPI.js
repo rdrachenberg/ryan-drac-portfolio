@@ -7,6 +7,7 @@ import {ListItem} from '../components/ListItem';
 import {Link} from 'react-router-dom';
 import DeleteButton from './DeleteButton';
 import UpdateButton from './UpdateButton';
+import { ModalPage} from '../components/Modal';
 
 
 export class DisplayAPI extends React.Component  {
@@ -80,7 +81,6 @@ export class DisplayAPI extends React.Component  {
                 .catch(err => console.log(err));
             }
         };
-        
     render() {
         const {user, name, email, subject, message} = this.state 
         if (this.state.toHide === true){
@@ -91,24 +91,24 @@ export class DisplayAPI extends React.Component  {
                             < List className = "list-container-one-return" >
                                 <ListItem key={user._id}>
                                     <Link to="/api-render">
-                                            <Col md="10">
-                                                <form onSubmit={this.onSubmit} className="form-api">
-                                                <p className="h4 text-center mb-4">Edit Record</p>
-                                                <label htmlFor="name" className="grey-text">Edit name</label>
-                                                <input type="text" placeholder= {this.state.user.name} name="name" value={this.state.name} onChange={this.onChange} id="name" className="form-control" autoComplete='name' required/>
-                                                <br/>
-                                                <label htmlFor="email" className="grey-text">Edit email</label>
-                                                <input type="email" placeholder= {this.state.user.email} name="email" value={this.state.email} onChange={this.onChange} id="email" className="form-control" autoComplete='email' required/>
-                                                <br/>
-                                                <label htmlFor="subject" className="grey-text">Edit Subject</label>
-                                                <input type="text" placeholder= {this.state.user.subject} name="subject" value={this.state.subject} onChange={this.onChange} id="subject" className="form-control"/>
-                                                <br/>
-                                                <label htmlFor="message" className="grey-text">Edit message</label>
-                                                <textarea type="text" placeholder= {this.state.user.message} name="message" value={this.state.message}  onChange={this.onChange} id="message" className="form-control" rows="3" required></textarea>
-                                                <div className="text-center mt-4">
-                                                </div>
-                                                </form>
-                                            </Col>
+                                        <Col md="10">
+                                            <form onSubmit={this.onSubmit} className="form-api">
+                                            <p className="h4 text-center mb-4">Edit Record</p>
+                                            <label htmlFor="name" className="grey-text">Edit name</label>
+                                            <input type="text" placeholder= {this.state.user.name} name="name" value={this.state.name} onChange={this.onChange} id="name" className="form-control" autoComplete='name' required/>
+                                            <br/>
+                                            <label htmlFor="email" className="grey-text">Edit email</label>
+                                            <input type="email" placeholder= {this.state.user.email} name="email" value={this.state.email} onChange={this.onChange} id="email" className="form-control" autoComplete='email' required/>
+                                            <br/>
+                                            <label htmlFor="subject" className="grey-text">Edit Subject</label>
+                                            <input type="text" placeholder= {this.state.user.subject} name="subject" value={this.state.subject} onChange={this.onChange} id="subject" className="form-control"/>
+                                            <br/>
+                                            <label htmlFor="message" className="grey-text">Edit message</label>
+                                            <textarea type="text" placeholder= {this.state.user.message} name="message" value={this.state.message}  onChange={this.onChange} id="message" className="form-control" rows="3" required></textarea>
+                                            <div className="text-center mt-4">
+                                            </div>
+                                            </form>
+                                        </Col>
                                     </Link>
                                     <UpdateButton key={user._id} onClick={() => this.updateUser(user._id)} />
                                 </ListItem>
@@ -121,12 +121,17 @@ export class DisplayAPI extends React.Component  {
         return(
             <div>
                 <Container>
+                    < Row className="crud-operations-title">
+                        <Col md="4"></Col>
+                        < Col md="4" >
+                            < p className = "h1 text-center mb-1" > CRUD Operations </p>
+                        </Col>
+                    </Row >
                     <Row>
                         <Col md="6">
                             <div className="hidden">
                             <form onSubmit={this.onSubmit} className="form-api">
-                            < p className = "h2 text-center mb-2" > CRUD Operations </p>
-                                <p className="h3 text-center mb-3">Add a Record</p>
+                                <p className="h2 text-center mb-2">Add a Record</p>
                                 <label htmlFor="name" className="grey-text">Your name</label>
                                 <input type="text" name="name" value={name} onChange={this.onChange} id="name" className="form-control" autoComplete='name' required/>
                                 <br/>
@@ -193,13 +198,13 @@ export class DisplayAPI extends React.Component  {
                                             <input type="text" placeholder= {this.state.user.name} name="name" value={this.state.name} onChange={this.onChange} id="name" className="form-control" autoComplete='name' required/>
                                             <br/>
                                             <label htmlFor="email" className="grey-text">Edit email</label>
-                                            <input type="email" name="email" value={this.state.email} onChange={this.onChange} id="email" className="form-control" autoComplete='email' required/>
+                                            <input type="email" name="email" placeholder= {this.state.user.email} value={this.state.email} onChange={this.onChange} id="email" className="form-control" autoComplete='email' required/>
                                             <br/>
                                             <label htmlFor="subject" className="grey-text">Edit Subject</label>
-                                            <input type="text" name="subject" value={this.state.subject} onChange={this.onChange} id="subject" className="form-control"/>
+                                            <input type="text" name="subject" placeholder= {this.state.user.subject} value={this.state.subject} onChange={this.onChange} id="subject" className="form-control"/>
                                             <br/>
                                             <label htmlFor="message" className="grey-text">Edit message</label>
-                                            <textarea type="text" name="message" value={this.state.message}  onChange={this.onChange} id="message" className="form-control" rows="3" required></textarea>
+                                            <textarea type="text" name="message" placeholder= {this.state.user.message} value={this.state.message}  onChange={this.onChange} id="message" className="form-control" rows="3" required></textarea>
                                             <div className="text-center mt-4">
                                                 {/* <button className="btn btn-elegant" type="submit">Post<i className="fa fa-paper-plane-o ml-2"></i></button> */}
                                             </div>
@@ -214,6 +219,7 @@ export class DisplayAPI extends React.Component  {
                     )}
                     </Row>
                 </Container>
+                < ModalPage />
             </div>
         );
     }

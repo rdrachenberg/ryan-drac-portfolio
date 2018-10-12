@@ -9,6 +9,7 @@ export default () => (
     <div>
         <NavbarFeatures />
         < DisplayAPI />
+        
         < FooterPage /> 
     </div>
 );
