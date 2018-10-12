@@ -148,7 +148,7 @@ return (
                                             Message: {this.state.user.message}
                                         </div>
                                         <Col md="10">
-                                            <form onSubmit={this.onSubmit} className="form-api">
+                                            <form onSubmit={this.onSubmit.bind(this)} className="form-api">
                                             <p className="h4 text-center mb-4">Edit Record</p>
                                             <label htmlFor="name" className="grey-text">Edit name</label>
                                             <input type="text" placeholder= {this.state.user.name} name="name" value={this.state.name} onChange={this.onChange} id="name" className="form-control" autoComplete='name' required/>
@@ -162,7 +162,6 @@ return (
                                             <label htmlFor="message" className="grey-text">Edit message</label>
                                             <textarea type="text" name="message" placeholder= {this.state.user.message} value={this.state.message}  onChange={this.onChange} id="message" className="form-control" rows="3" required></textarea>
                                             <div className="text-center mt-4">
-                                                {/* <button className="btn btn-elegant" type="submit">Post<i className="fa fa-paper-plane-o ml-2"></i></button> */}
                                             </div>
                                             </form>
                                         </Col>
@@ -178,7 +177,7 @@ return (
             </div>
         </ModalBody>
         <ModalFooter>
-            <Button color="secondary" onClick={() => this.toggle(14)}>Close</Button>
+            <Button color="elegant" onClick={() => this.toggle(14)}>Close</Button>
             <Button color="primary" key={user._id} onClick={() => this.updateUser(user._id)}>Save changes</Button>
         </ModalFooter>
         </Modal>

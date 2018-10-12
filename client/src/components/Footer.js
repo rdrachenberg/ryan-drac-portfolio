@@ -8,7 +8,7 @@ export class FooterPage extends React.Component {
                 <Container fluid className="text-center text-md-center">
                     <Row>
                         <Col sm="4" id="footer-title-col">
-                        <h5 className="footer-title"><a href="https://ryan-drac-port.herokuapp.com/">Ryan Drachenberg</a></h5>
+                        <h5 className="footer-title"><a href="https://ryan-drachenberg-react.herokuapp.com/">Ryan Drachenberg</a></h5>
                         </Col>
                         <Col sm="4">
                         <ul className="footer-links">
