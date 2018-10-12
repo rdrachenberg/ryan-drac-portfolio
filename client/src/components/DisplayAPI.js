@@ -11,18 +11,20 @@ import { ModalPage} from '../components/Modal';
 
 
 export class DisplayAPI extends React.Component  {
-    
-        state = {
+    constructor(props) {
+        super(props);
+        this.state = {
             toUpdate: false,
             toHide: false,
+            toRefresh: false,
             user:[],
                 name: '',
                 email: '',
                 subject: '',
                 message: '',
 
-        }
-        
+        };
+    }
         componentDidMount(){
             this.loadUsers();
         }
@@ -47,7 +49,7 @@ export class DisplayAPI extends React.Component  {
                     subject: this.state.subject,
                     message: this.state.message
             })
-            .then(res => this.findOneUser())
+            .then(res => this.setState({ user: res.data, toUpdate: true}))
             .then(res => this.loadUsers())
             .then(res => console.log('the Update button has been clicked'))
             .catch(err => console.log(err));
@@ -92,7 +94,7 @@ export class DisplayAPI extends React.Component  {
                                 <ListItem key={user._id}>
                                     <Link to="/api-render">
                                         <Col md="10">
-                                            <form onSubmit={this.onSubmit} className="form-api">
+                                            <form onSubmit={this.onSubmit.bind(this)} className="form-api">
                                             <p className="h4 text-center mb-4">Edit Record</p>
                                             <label htmlFor="name" className="grey-text">Edit name</label>
                                             <input type="text" placeholder= {this.state.user.name} name="name" value={this.state.name} onChange={this.onChange} id="name" className="form-control" autoComplete='name' required/>
@@ -117,7 +119,7 @@ export class DisplayAPI extends React.Component  {
                     </Row>
                 </div>
             )
-        };
+        } 
         return(
             <div>
                 <Container>
@@ -130,7 +132,7 @@ export class DisplayAPI extends React.Component  {
                     <Row>
                         <Col md="6">
                             <div className="hidden">
-                            <form onSubmit={this.onSubmit} className="form-api">
+                            <form onSubmit={this.onSubmit.bind(this)} className="form-api">
                                 <p className="h2 text-center mb-2">Add a Record</p>
                                 <label htmlFor="name" className="grey-text">Your name</label>
                                 <input type="text" name="name" value={name} onChange={this.onChange} id="name" className="form-control" autoComplete='name' required/>
@@ -192,7 +194,7 @@ export class DisplayAPI extends React.Component  {
                                             Message: {this.state.user.message}
                                         </div>
                                         <Col md="12">
-                                            <form onSubmit={this.onSubmit} className="form-api">
+                                            <form onSubmit={this.onSubmit.bind(this)} className="form-api">
                                             <p className="h4 text-center mb-4">Edit Record</p>
                                             <label htmlFor="name" className="grey-text">Edit name</label>
                                             <input type="text" placeholder= {this.state.user.name} name="name" value={this.state.name} onChange={this.onChange} id="name" className="form-control" autoComplete='name' required/>
