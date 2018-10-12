@@ -177,8 +177,12 @@ return (
             </div>
         </ModalBody>
         <ModalFooter>
-            <Button color="elegant" onClick={() => this.toggle(14)}>Close</Button>
-            <Button color="primary" key={user._id} onClick={() => this.updateUser(user._id)}>Save changes</Button>
+            <span onClick={()=> this.loadUsers()}>
+                <Button color="elegant" onClick={() => this.toggle(14)}>Close</Button>
+            </span>
+            <span onClick={()=> this.loadUsers()}>
+                <Button color="primary" key={user._id} onClick={() => this.updateUser(user._id)}>Save changes</Button>
+            </span>
         </ModalFooter>
         </Modal>
     </Container>
