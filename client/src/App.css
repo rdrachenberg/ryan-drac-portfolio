@@ -119,7 +119,9 @@ margin: 5px;
 }
 
 .list-item-group {
-width: 100%;
+  width: 100%;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .list-container{
@@ -156,6 +158,7 @@ width: 100%;
   align-content: center;  
   margin: 5px;
   padding: 5px;
+  margin-bottom: 15px;
 
 }
 .list-container li * {
@@ -182,7 +185,6 @@ width: 100%;
   background-color:#4285F4;
   padding: 8px;
   margin-top: 20px;
-  /* margin:10px 10px 0 0; */
   justify-items: center;
   justify-content: center;
   align-items: center;
@@ -191,7 +193,15 @@ width: 100%;
   text-align: center;
   font-weight: bold;
   vertical-align: middle;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 10px;
 
+}
+.delete-button:hover,
+.update-button:hover,
+.update-api:hover {
+  background: #2E2E2E;
 }
 
 .api-render li{
