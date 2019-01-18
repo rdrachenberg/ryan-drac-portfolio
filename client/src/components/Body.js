@@ -17,7 +17,7 @@ export class Body extends React.Component{
                     <section className="main-section">
                         <div className="row">
                             <div className="col-sm-4">
-                                < img src = "https://scontent.ftpa1-1.fna.fbcdn.net/v/t1.0-1/c21.2.385.385a/s320x320/179336_10150091216446506_86180_n.jpg?_nc_cat=105&_nc_ht=scontent.ftpa1-1.fna&oh=d0ff712716ec0be81690aa58f98b6db0&oe=5C8BF45C"
+                                < img src = "https://github.com/rdrachenberg/Bootstrap-Portfolio/blob/master/public/assets/images/Ryan-Drachenberg.jpg?raw=true"
                                 className="ryan-img" id="bioPic" alt="Ryan-Drachenberg" />
                             </div>
                             <div className="col-sm-4" id="to-delete">
