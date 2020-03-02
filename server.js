@@ -17,11 +17,14 @@ let cors = require('cors');
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || databaseURI, {
-useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+
 });;
-mongoose.connect("mongodb://localhost:27017/rd-portfolio-db", {
-    useNewUrlParser: true
-});
+// mongoose.connect("mongodb://localhost:27017/rd-portfolio-db", {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// });
 
 if (process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI);
