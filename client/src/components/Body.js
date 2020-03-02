@@ -1,6 +1,6 @@
 import React from "react"
 import '../App.css';
-import {Animation} from 'mdbreact'
+import {Animation} from 'mdbreact';
 
 
 export class Body extends React.Component{
